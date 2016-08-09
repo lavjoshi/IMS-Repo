@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 align="center">Create Purchase</h1><br/>
+<div ng-controller="createPurchase">
+
+    <div align="center">
+
+    <form>
+        <b>Vendor Name:</b> &nbsp;&nbsp;<input type='text' ng-model='table.vendorName' placeholder='Vendor name:' required="required"><br/>
+        <br/>
+        <b>Items:</b>
+        <div ng-repeat="itemName in table.itemName track by $index" >
+        <select  ng-model='table.itemName[$index]'>
+
+            <option ng-repeat="inventory in result" value="{{inventory.name}}" >{{inventory.name}}</option>
+
+        </select>
+
+        <input  type='number' ng-model='table.cost[$index]' placeholder='Cost'  required="required">
+        <input  type='number' ng-model='table.quantity[$index]' placeholder='Quantity' required="required"><br/>
+
+        </div>
+        <br/><br/>
+        <div>
+            <button ng-click="submitTable()" class="btn btn-primary">Submit</button>&nbsp;
+            <button ng-click="addFormField()" class="btn btn-info">Add</button>
+        </div>
+
+    </form>
+    </div>
+
+<h3 align="center" style="color: red">{{error}}</h3>
+
+</div>
+</body>
+</html>

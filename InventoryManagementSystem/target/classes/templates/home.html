@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Spring Security Example</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <style>
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+        body {
+            /* Margin bottom by footer height */
+            margin-bottom: 60px;
+
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+
+            height: 60px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body >
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" >RoboticWares</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li><a th:href="@{/purchasePannel}">Purchase</a></li>
+        <li><a th:href="@{/productionPannel}">Production</a></li>
+        <li><a th:href="@{/adminPannel}" th:align="right">Admin</a></li>
+    </ul>
+</nav>
+
+
+<br/><br/>
+
+<div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+        <div class="col-lg-4">
+            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140"/>
+            <h2>Manage Resources</h2>
+            <p>Stockouts can cause you to lose sales and disappoint customers. That's why it's so important to manage your inventory levels and make sure that reorders are made on time. With FarEye, you will also be able to manage inventory across multiple locations and warehouses.</p>
+
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140"/>
+            <h2>Inventory Control</h2>
+            <p>Access real-time data about what you have, where it is, and how much it's worth.
+                Automatically updated inventory levels when sales are made on any channel.</p>
+
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140"/>
+            <h2>Growth</h2>
+            <p>B2C sales order management - making it easy for you to track and fulfill orders. B2B sales order management - personalize your business customers' purchase experience. Order fulfillment - fulfill orders faster, in greater volume, at lower costs to achieve customer satisfaction</p>
+        </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+
+
+
+
+    <!-- FOOTER -->
+
+
+</div><!-- /.container -->
+
+
+<footer class="footer">
+    <div class="container" align="center">
+        <p class="text-muted">Inventory Management System <b>&copy;</b> <img src="http://www.getfareye.com/images/fareye-logo.png"/></p>
+
+    </div>
+</footer>
+</body>
+</html>

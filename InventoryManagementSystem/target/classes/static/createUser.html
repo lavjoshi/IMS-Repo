@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Title</title>
+</head>
+<body>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+<div ng-controller="newUser">
+
+    <h2 align="center">Register new User</h2>
+
+
+    <h3 style="color: red" align="center">{{error}}</h3>
+<div align="center">
+
+    <form class="form-horizontal" ng-submit="insert()">
+        User Name: <input type="text" ng-model="username" class="form-control" required="required"/><br/>
+        Password: <input type="password" ng-model="password" class="form-control" required="required"/><br/>
+        Email: <input type="email" ng-model="email"class="form-control" required="required"/><br/>
+        <h4><b>Role:</b>&nbsp;&nbsp;
+        Production Manager<input type="radio" ng-model="role" value="PRODUCE" checked="checked"/>
+        Purchase Officer<input type="radio" ng-model="role" value="ACCOUNT" ></h4>&nbsp;&nbsp;
+        <input type="submit" class="btn btn-primary"  value="create"/>
+
+    </form>
+
+</div>
+</div>
+
+</body>
+</html>

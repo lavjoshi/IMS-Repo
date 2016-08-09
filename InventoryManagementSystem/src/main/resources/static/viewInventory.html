@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Title</title>
+</head>
+<body>
+
+<div ng-controller="viewInventory" >
+
+    <h2 align="center">Inventories</h2>
+    <div align="center"><span class="glyphicon glyphicon-search"></span>&nbsp;<input type="text" ng-model="item" placeholder="search.."></div><br/>
+    <div ng-show="error" align="center"><h3 style="color: red">{{error}}</h3></div>
+    <table border="1" class="table table-hover">
+
+    <th>name</th><th>unit cost</th><th>opening balance</th><th>current balance</th>
+    <tr ng-repeat="inventory in result | filter:item">
+        <td>{{inventory.name}}</td>
+        <td>{{inventory.unitCost}}</td>
+        <td>{{inventory.openingBalance}}</td>
+        <td>{{inventory.currentBalance}}</td>
+        <td><a ng-click="edit(inventory)">edit&nbsp;<span class="glyphicon glyphicon-pencil"></span></a></td>
+        <td><a ng-click="delete(inventory.name)">delete &nbsp;<span class="glyphicon glyphicon-trash"></span></a></td>
+    </tr>
+</table>
+
+
+    <div ng-show="data1" align="center">
+        <b>Inventory Name: {{data1.name}}</b><br>
+        <form ng-submit="update(data1.name,modifiedName,modifiedCost)">
+
+            Unit cost:<input type="text" ng-model="modifiedCost"  required="required">
+            <input type="submit" value="Update">
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

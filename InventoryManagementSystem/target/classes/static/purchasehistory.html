@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2 align="center">Purchase History</h2><br/>
+<div ng-controller="PurchaseHistory">
+
+    <div align="center"><b>Inventory:</b><select  ng-model='name' ng-mouseleave="fetch()">
+    <option ng-repeat="inventory in result" value="{{inventory.name}}" >{{inventory.name}}</option>
+
+</select>
+</div>
+    <div ng-show="error" class="alert alert-danger" align="center"><div ng-hide="result1">{{error}}</div></div>
+    <br/><br/>
+    <div ng-show="result1">
+
+        <table border="1" class="table table-hover">
+
+            <th>Purchase Id</th><th>Date</th><th>Ordered By</th><th>Vendor Name</th><th>Purchased Items</th><th>Total Cost</th>
+            <tr ng-repeat="product in result1">
+                <td>{{product.purchaseno}}</td><td>{{product.date}}</td><td>{{product.username}}</td><td>{{product.vendorname}}</td>
+
+                <td ng-repeat="item in product.purchaseItems"><b>name :</b> {{item.name}} <b>quantity :</b> {{item.quantity}} <b>cost :</b> {{item.cost}}</td><td ng-repeat="item in product.purchaseItems">{{(item.cost*item.quantity)+(item.cost*item.quantity*0.05)}}</td>
+
+
+            </tr>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>

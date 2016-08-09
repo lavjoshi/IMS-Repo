@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+
+    <title>Title</title>
+    <style>
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+        body {
+            /* Margin bottom by footer height */
+            margin-bottom: 60px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            /* Set the fixed height of the footer here */
+            height: 60px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body ng-app="myapp" ng-init="start()" ng-controller="initialController" background="images/bg3.jpg">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" >RoboticWares</a>
+    </div>
+    <ul class="nav navbar-nav">
+
+        <li><a ui-sref="createPurchase">Create Purchase</a></li>
+        <li><a ui-sref="viewPurchase">View Purchase</a></li>
+        <li><a ui-sref="changePass">Change Password</a></li>
+
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li><form th:action="@{/logout}" method="post">
+            <div><input type="submit" Class="btn btn-primary" value="Logout!"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        </form> </li>
+    </ul>
+</nav>
+<div align="center"><h1 th:inline="text"><span class="glyphicon glyphicon-user"></span> &nbsp;Hello [[${#httpServletRequest.remoteUser}]]!</h1></div>
+<script src="angular.js"></script>
+<script src="angular-ui-router.js"></script>
+<script>
+    var routerApp= angular.module('myapp',['ui.router']);
+
+</script>
+<script src="purchaseconfig.js"></script>
+<script src="purchasecontroller.js"></script>
+<br/>
+<div ui-view="purchase"></div>
+<footer class="footer">
+    <div class="container" align="center">
+        <p class="text-muted">Inventory Management System <b>&copy;</b> <img src="http://www.getfareye.com/images/fareye-logo.png"/></p>
+
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 align="center">Purchase Orders</h1>
+<div ng-controller="viewPurchase" >
+   <div align="center"><span class="glyphicon glyphicon-search"></span>&nbsp;<input type="text" ng-model="product" placeholder="search.."></div>
+    <h3 align="center" style="color: red">{{data1}}</h3>
+
+   <table border="1" class="table table-hover">
+
+        <th>Order Id</th><th>Date</th><th>Vendor Name</th><th>Total Cost</th><th>Purchase Items</th>
+       <tr ng-repeat="order in result | filter:product">
+           <td>{{order.purchaseno}}</td><td>{{order.date}}</td><td>{{order.vendorname}}</td><td>{{order.totalCost}}</td>
+
+           <td>
+               <ul>
+                   <li  ng-repeat="item in order.purchaseItems">
+                       <b>Name : </b> {{item.name}} <b>Quantity :</b> {{item.quantity}}  <b>Cost :</b> {{item.cost}} &nbsp;&nbsp;<a ng-click="delete(order.purchaseno,item.name)">delete &nbsp;<span class="glyphicon glyphicon-trash"></span></a>&nbsp;&nbsp; <a ng-click="edit(order.purchaseno,item.name)">edit&nbsp;<span class="glyphicon glyphicon-pencil"></span></a>
+
+                   </li>
+               </ul>
+
+
+
+
+
+           </td>
+
+
+       </tr>
+    </table>
+
+    <br><br>
+
+
+
+    <div ng-show="data2">
+          <b>  Item Id:{{data2.itemid}}<br/>
+            Item Name:{{data2.name}}<br/>
+            Order Id:{{pno}}<br/>
+            Previous Quantity: {{data2.quantity}} <br/></b>
+            <form ng-submit=update(data2.itemid,data2.quantity,pno)>
+            Modified Quantity:<input type="nuber" ng-model="modifiedQuantity" required="required"><br/>
+            <input type="submit" value="update"  class="btn btn-primary">
+            </form>
+    </div>
+
+
+</div>
+</body>
+</html>

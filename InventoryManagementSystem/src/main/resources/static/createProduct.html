@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1 align="center">Create Product</h1>
+<div ng-controller="createProduct" align="center">
+
+    <form  >
+       <b> Product Name :</b><select ng-model="productName" >
+        <option ng-repeat="inventory in result" value="{{inventory.name}}">{{inventory.name}}</option>
+    </select>
+         &nbsp;&nbsp;&nbsp;
+        <b>Units Manufactured:</b><input type="number" ng-model="totalManufactured"><br/>
+        <br/>
+        <b>Raw Material:</b> &nbsp;&nbsp;&nbsp;
+
+        <div ng-repeat="itemName in table.itemName track by $index">
+            <br/>
+        <b>Item:</b><select  ng-model='table.itemName[$index]'>
+
+            <option ng-repeat="inventory in result" value="{{inventory.name}}" >{{inventory.name}}</option>
+
+        </select>
+
+
+        <b>Quantity Required:</b><input  type='number' ng-model='table.quantity[$index]' placeholder='Quantity Required'><br/>
+       </div>
+
+
+
+        <div>
+            <button ng-click="submitTable()" class="btn btn-primary">Submit</button>
+            <button ng-click="addFormField()" class="btn btn-info">Add</button>
+        </div>
+
+    </form>
+
+
+     <h3  align="center"> <div ng-show="error"><div ng-hide="data" style="color: red">{{error}}</div></div>
+
+    <div ng-show="data">
+        {{data}}
+        <button ng-click="confirmProduct()" class="btn btn-primary">Initiate Production</button>
+    </div>
+     </h3>
+</div>
+</body>
+</html>

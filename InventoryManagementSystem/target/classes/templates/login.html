@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Spring Security Example </title>
+    <style>
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+        body {
+            /* Margin bottom by footer height */
+            margin-bottom: 60px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            /* Set the fixed height of the footer here */
+            height: 60px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+
+
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" >RoboticWares</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li><a href="#">Login</a></li>
+
+
+    </ul>
+</nav>
+<br/><br/><br/><br/>
+
+<h2 align="center">Login</h2>
+<div class="jumbotron" align="center">
+<form th:action="@{/login}" method="post" class="form-horizontal">
+    <div><label> User Name : <input type="text" name="username" required="required"/> </label></div>
+    <div><label> Password: <input type="password" name="password" required="required"/> </label></div>
+    <div><input type="submit" value="Sign In" class="btn btn-primary"/></div>
+</form>
+</div>
+
+<div class="alert alert-danger" th:if="${param.error}" align="center">
+    Invalid username and password.
+</div>
+<div th:if="${param.logout}" class="alert alert-warning" align="center">
+    You have been logged out.
+</div>
+<footer class="footer">
+    <div class="container" align="center">
+        <p class="text-muted">Inventory Management System <b>&copy;</b> <img src="http://www.getfareye.com/images/fareye-logo.png"/></p>
+
+    </div>
+</footer>
+</body>
+</html>

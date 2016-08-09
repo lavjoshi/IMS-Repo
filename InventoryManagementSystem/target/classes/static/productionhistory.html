@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2 align="center">Production History</h2><br/>
+<div ng-controller="ProductionHistory">
+<div align="center">
+    <b>Inventory:</b><select  ng-model='name' ng-mouseleave="fetch()">
+    <option ng-repeat="inventory in result" value="{{inventory.name}}" >{{inventory.name}}</option>
+
+</select>
+</div>
+
+
+
+
+    <br/>
+    <div ng-show="result1">
+
+        <table border="1" class="table table-hover">
+
+            <th>Production Id</th><th>Date</th><th>Initiated By</th><th>Quantity Manufactured</th><th>Raw Materials</th>
+            <tr ng-repeat="product in result1">
+                <td>{{product.productionNo}}</td><td>{{product.date}}</td><td>{{product.userName}}</td><td>{{product.totalManufactured}}</td>
+
+                <td>
+
+                    <ul>
+                        <li ng-repeat="item in product.productionItem"><b>Name :</b> {{item.name}} <b>Quantity required:</b> {{item.quantityRequired}}</li>
+                    </ul>
+
+                </td>
+
+
+            </tr>
+        </table>
+    </div>
+    <div ng-show="error" class="alert alert-danger" align="center"><div ng-hide="result1">{{error}}</div></div>
+
+</div>
+</body>
+</html>
